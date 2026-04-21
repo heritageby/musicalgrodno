@@ -1,30 +1,41 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Музыкальный Гродно</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
+        rel="stylesheet">
     <style>
         /* ============================
            ПЕРЕМЕННЫЕ И СБРОС
            ============================ */
         :root {
-            --bg:          #0C0910;
-            --bg-card:     #181320;
-            --bg-hover:    #201828;
-            --gold:        #C9A84C;
-            --gold-light:  #E8C96B;
-            --gold-dim:    rgba(201,168,76,0.18);
-            --gold-border: rgba(201,168,76,0.28);
-            --cream:       #F0E9D6;
-            --cream-dim:   #9C8E78;
-            --burgundy:    #6B2037;
+            --bg: #0C0910;
+            --bg-card: #181320;
+            --bg-hover: #201828;
+            --gold: #C9A84C;
+            --gold-light: #E8C96B;
+            --gold-dim: rgba(201, 168, 76, 0.18);
+            --gold-border: rgba(201, 168, 76, 0.28);
+            --cream: #F0E9D6;
+            --cream-dim: #9C8E78;
+            --burgundy: #6B2037;
         }
 
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             background: var(--bg);
@@ -41,13 +52,11 @@
             inset: 0;
             pointer-events: none;
             z-index: 0;
-            background-image: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 30px,
-                rgba(201,168,76,0.025) 30px,
-                rgba(201,168,76,0.025) 31px
-            );
+            background-image: repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 30px,
+                    rgba(201, 168, 76, 0.025) 30px,
+                    rgba(201, 168, 76, 0.025) 31px);
         }
 
         /* ============================
@@ -55,7 +64,9 @@
            ============================ */
         nav {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 900;
             height: 68px;
             display: flex;
@@ -108,7 +119,9 @@
         }
 
         .nav-links a:hover,
-        .nav-links a.active { color: var(--gold); }
+        .nav-links a.active {
+            color: var(--gold);
+        }
 
         /* ============================
            СИСТЕМА СТРАНИЦ
@@ -122,11 +135,20 @@
             animation: fadeIn 0.45s ease;
         }
 
-        .page.active { display: block; }
+        .page.active {
+            display: block;
+        }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to   { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ============================
@@ -148,7 +170,7 @@
         .hero-bg-clef {
             position: absolute;
             font-size: 55vw;
-            color: rgba(201,168,76,0.025);
+            color: rgba(201, 168, 76, 0.025);
             line-height: 1;
             top: 50%;
             left: 50%;
@@ -233,9 +255,9 @@
             padding: 2.75rem 2rem 2.25rem;
             text-align: center;
             cursor: pointer;
-            transition: transform 0.4s cubic-bezier(.16,1,.3,1),
-                        box-shadow 0.4s ease,
-                        border-color 0.3s ease;
+            transition: transform 0.4s cubic-bezier(.16, 1, .3, 1),
+                box-shadow 0.4s ease,
+                border-color 0.3s ease;
             position: relative;
             overflow: hidden;
         }
@@ -244,7 +266,9 @@
         .section-card::after {
             content: '';
             position: absolute;
-            bottom: 0; left: 0; right: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
             height: 2px;
             background: linear-gradient(90deg, var(--burgundy), var(--gold), var(--burgundy));
             transform: scaleX(0);
@@ -254,10 +278,12 @@
         .section-card:hover {
             transform: translateY(-8px);
             border-color: var(--gold);
-            box-shadow: 0 24px 70px rgba(0,0,0,0.55), 0 0 40px rgba(201,168,76,0.07);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55), 0 0 40px rgba(201, 168, 76, 0.07);
         }
 
-        .section-card:hover::after { transform: scaleX(1); }
+        .section-card:hover::after {
+            transform: scaleX(1);
+        }
 
         .sc-icon {
             font-size: 2.8rem;
@@ -288,7 +314,9 @@
             transition: transform 0.3s;
         }
 
-        .section-card:hover .sc-arrow { transform: translateX(5px); }
+        .section-card:hover .sc-arrow {
+            transform: translateX(5px);
+        }
 
         /* ============================
            ЗАГОЛОВОК ВНУТРЕННЕЙ СТРАНИЦЫ
@@ -356,7 +384,9 @@
             transition: color 0.2s;
         }
 
-        .back-btn:hover { color: var(--gold); }
+        .back-btn:hover {
+            color: var(--gold);
+        }
 
         /* ============================
            КАРТОЧКИ МУЗЫКАНТОВ
@@ -374,16 +404,16 @@
             background: var(--bg-card);
             border: 1px solid var(--gold-border);
             cursor: pointer;
-            transition: transform 0.4s cubic-bezier(.16,1,.3,1),
-                        border-color 0.3s ease,
-                        box-shadow 0.4s ease;
+            transition: transform 0.4s cubic-bezier(.16, 1, .3, 1),
+                border-color 0.3s ease,
+                box-shadow 0.4s ease;
             overflow: hidden;
         }
 
         .musician-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(201,168,76,0.55);
-            box-shadow: 0 28px 65px rgba(0,0,0,0.5), 0 0 30px rgba(201,168,76,0.07);
+            border-color: rgba(201, 168, 76, 0.55);
+            box-shadow: 0 28px 65px rgba(0, 0, 0, 0.5), 0 0 30px rgba(201, 168, 76, 0.07);
         }
 
         /* Верхний блок-портрет */
@@ -403,7 +433,7 @@
             content: attr(data-note);
             position: absolute;
             font-size: 9rem;
-            color: rgba(201,168,76,0.06);
+            color: rgba(201, 168, 76, 0.06);
             line-height: 1;
             right: 1rem;
             bottom: -0.5rem;
@@ -423,19 +453,21 @@
             font-size: 1.75rem;
             font-weight: 700;
             color: var(--gold);
-            background: rgba(201,168,76,0.05);
+            background: rgba(201, 168, 76, 0.05);
             position: relative;
             z-index: 1;
             transition: background 0.3s, transform 0.3s;
         }
 
         .musician-card:hover .mc-initials-ring {
-            background: rgba(201,168,76,0.1);
+            background: rgba(201, 168, 76, 0.1);
             transform: scale(1.06);
         }
 
         /* Нижняя текстовая часть карточки */
-        .mc-body { padding: 1.4rem 1.5rem 1.5rem; }
+        .mc-body {
+            padding: 1.4rem 1.5rem 1.5rem;
+        }
 
         .mc-years {
             font-size: 0.72rem;
@@ -523,10 +555,14 @@
 
         .instrument-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(201,168,76,0.5);
+            border-color: rgba(201, 168, 76, 0.5);
         }
 
-        .ic-icon { font-size: 2.6rem; margin-bottom: 1rem; display: block; }
+        .ic-icon {
+            font-size: 2.6rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
 
         .ic-name {
             font-family: 'Playfair Display', serif;
@@ -563,7 +599,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
             font-weight: 900;
-            color: rgba(201,168,76,0.12);
+            color: rgba(201, 168, 76, 0.12);
             min-width: 60px;
             line-height: 1;
             margin-top: -6px;
@@ -605,20 +641,27 @@
 
         .modal {
             background: var(--bg-card);
-            border: 1px solid rgba(201,168,76,0.35);
+            border: 1px solid rgba(201, 168, 76, 0.35);
             max-width: 680px;
             width: 100%;
             max-height: 88vh;
             overflow-y: auto;
             position: relative;
-            animation: modalIn 0.4s cubic-bezier(.16,1,.3,1);
+            animation: modalIn 0.4s cubic-bezier(.16, 1, .3, 1);
             scrollbar-width: thin;
             scrollbar-color: var(--gold-border) transparent;
         }
 
         @keyframes modalIn {
-            from { opacity: 0; transform: scale(0.9) translateY(24px); }
-            to   { opacity: 1; transform: scale(1) translateY(0); }
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
 
         .modal-close {
@@ -636,7 +679,9 @@
             display: block;
         }
 
-        .modal-close:hover { color: var(--gold); }
+        .modal-close:hover {
+            color: var(--gold);
+        }
 
         .modal-top {
             padding: 1.75rem 2rem 1.5rem;
@@ -661,7 +706,9 @@
             line-height: 1.2;
         }
 
-        .modal-body { padding: 0 2rem 2rem; }
+        .modal-body {
+            padding: 0 2rem 2rem;
+        }
 
         .modal-section-label {
             font-size: 0.7rem;
@@ -692,295 +739,333 @@
            АДАПТИВНОСТЬ
            ============================ */
         @media (max-width: 900px) {
-            .section-cards { grid-template-columns: 1fr; }
+            .section-cards {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 640px) {
-            .nav-links { display: none; }
-            .musicians-grid { grid-template-columns: 1fr; }
-            .modal { max-height: 95vh; }
+            .nav-links {
+                display: none;
+            }
+
+            .musicians-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal {
+                max-height: 95vh;
+            }
+        }
+
+        .mc-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .musician-card:hover .mc-photo {
+            transform: scale(1.06);
         }
     </style>
 </head>
+
 <body>
 
-<!-- ==================== НАВИГАЦИЯ ==================== -->
-<nav>
-    <span class="nav-logo" onclick="showPage('home')">
-        <span class="nav-clef">𝄞</span>
-        <span class="nav-title">Музыкальный Гродно</span>
-    </span>
-    <ul class="nav-links">
-        <li><a href="#" id="nav-home"       onclick="return nav('home')">Главная</a></li>
-        <li><a href="#" id="nav-musicians"  onclick="return nav('musicians')">Музыканты</a></li>
-        <li><a href="#" id="nav-instruments" onclick="return nav('instruments')">Инструменты</a></li>
-        <li><a href="#" id="nav-traditions" onclick="return nav('traditions')">Традиции</a></li>
-    </ul>
-</nav>
+    <!-- ==================== НАВИГАЦИЯ ==================== -->
+    <nav>
+        <span class="nav-logo" onclick="showPage('home')">
+            <span class="nav-clef">𝄞</span>
+            <span class="nav-title">Музыкальный Гродно</span>
+        </span>
+        <ul class="nav-links">
+            <li><a href="#" id="nav-home" onclick="return nav('home')">Главная</a></li>
+            <li><a href="#" id="nav-musicians" onclick="return nav('musicians')">Музыканты</a></li>
+            <li><a href="#" id="nav-instruments" onclick="return nav('instruments')">Инструменты</a></li>
+            <li><a href="#" id="nav-traditions" onclick="return nav('traditions')">Традиции</a></li>
+        </ul>
+    </nav>
 
-<!-- ==================== ГЛАВНАЯ ==================== -->
-<div class="page active" id="page-home">
+    <!-- ==================== ГЛАВНАЯ ==================== -->
+    <div class="page active" id="page-home">
 
-    <section class="hero">
-        <span class="hero-bg-clef">𝄞</span>
-        <p class="hero-eyebrow">Интерактивный путеводитель · Гродно</p>
-        <h1 class="hero-title">
-            Музыкальный
-            <span class="hero-title-accent">Гродно</span>
-        </h1>
-        <p class="hero-subtitle">
-            Истории людей, голоса инструментов и традиции, 
-            которые сделали Гродно городом с особой музыкальной душой
-        </p>
-        <div class="ornament">♩</div>
-    </section>
+        <section class="hero">
+            <span class="hero-bg-clef">𝄞</span>
+            <p class="hero-eyebrow">Интерактивный путеводитель · Гродно</p>
+            <h1 class="hero-title">
+                Музыкальный
+                <span class="hero-title-accent">Гродно</span>
+            </h1>
+            <p class="hero-subtitle">
+                Истории людей, голоса инструментов и традиции,
+                которые сделали Гродно городом с особой музыкальной душой
+            </p>
+            <div class="ornament">♩</div>
+        </section>
 
-    <div class="section-cards">
-        <div class="section-card" onclick="showPage('musicians')">
-            <span class="sc-icon">🎵</span>
-            <div class="sc-title">Музыканты Гродно</div>
-            <p class="sc-desc">Композиторы, исполнители и дирижёры, чьи судьбы связаны с нашим городом</p>
-            <span class="sc-arrow">→</span>
-        </div>
-        <div class="section-card" onclick="showPage('instruments')">
-            <span class="sc-icon">🎻</span>
-            <div class="sc-title">Народные инструменты</div>
-            <p class="sc-desc">Традиционные инструменты Гродненщины — живые голоса белорусской культуры</p>
-            <span class="sc-arrow">→</span>
-        </div>
-        <div class="section-card" onclick="showPage('traditions')">
-            <span class="sc-icon">🎭</span>
-            <div class="sc-title">Музыкальные традиции</div>
-            <p class="sc-desc">От старинных обрядовых песен до современных фестивалей — живая нить времён</p>
-            <span class="sc-arrow">→</span>
-        </div>
-    </div>
-</div>
-
-<!-- ==================== МУЗЫКАНТЫ ==================== -->
-<div class="page" id="page-musicians">
-    <button class="back-btn" onclick="showPage('home')">← На главную</button>
-    <div class="page-header">
-        <p class="ph-eyebrow">Раздел I</p>
-        <h2 class="ph-title">Музыканты Гродно</h2>
-        <div class="ph-rule"><span></span></div>
-        <p class="ph-desc">Семь удивительных судеб — люди, чья музыка рождалась на берегах Немана</p>
-    </div>
-    <div class="musicians-grid" id="musicians-grid">
-        <!-- Карточки добавляются через JavaScript -->
-    </div>
-</div>
-
-<!-- ==================== ИНСТРУМЕНТЫ ==================== -->
-<div class="page" id="page-instruments">
-    <button class="back-btn" onclick="showPage('home')">← На главную</button>
-    <div class="page-header">
-        <p class="ph-eyebrow">Раздел II</p>
-        <h2 class="ph-title">Народные инструменты</h2>
-        <div class="ph-rule"><span></span></div>
-        <p class="ph-desc">Голоса белорусской земли — инструменты, хранящие память Гродненщины</p>
-    </div>
-    <div class="instruments-grid">
-        <div class="instrument-card">
-            <span class="ic-icon">🪘</span>
-            <div class="ic-name">Цымбалы</div>
-            <p class="ic-desc">Главный символ белорусской народной музыки. Гродненщина — один из исторических центров этой традиции. Инструмент прост внешне, но удивительно богат по звучанию.</p>
-        </div>
-        <div class="instrument-card">
-            <span class="ic-icon">🎵</span>
-            <div class="ic-name">Дуда</div>
-            <p class="ic-desc">Белорусская волынка. Живая традиция игры на дуде сохранялась в западных районах Беларуси дольше всего — Гродненщина стала последним очагом этого искусства.</p>
-        </div>
-        <div class="instrument-card">
-            <span class="ic-icon">🎶</span>
-            <div class="ic-name">Колёсная лира</div>
-            <p class="ic-desc">Инструмент странствующих лирников. Они ходили по ярмаркам и храмовым праздникам всего Гродненского региона, передавая новости и предания в песнях.</p>
-        </div>
-        <div class="instrument-card">
-            <span class="ic-icon">🪈</span>
-            <div class="ic-name">Жалейка</div>
-            <p class="ic-desc">Духовой инструмент пастухов. Простой по устройству, но богатый по выразительности — подлинный голос белорусских лугов и лесов.</p>
-        </div>
-    </div>
-</div>
-
-<!-- ==================== ТРАДИЦИИ ==================== -->
-<div class="page" id="page-traditions">
-    <button class="back-btn" onclick="showPage('home')">← На главную</button>
-    <div class="page-header">
-        <p class="ph-eyebrow">Раздел III</p>
-        <h2 class="ph-title">Музыкальные традиции</h2>
-        <div class="ph-rule"><span></span></div>
-        <p class="ph-desc">От полонеза до рока — музыкальное время Гродно сквозь века</p>
-    </div>
-    <div class="traditions-list">
-        <div class="tradition-item">
-            <div class="tr-number">01</div>
-            <div>
-                <div class="tr-title">Традиция полонеза</div>
-                <p class="tr-text">Польский придворный танец стал частью гродненской идентичности в эпоху Речи Посполитой. Полонез Огинского «Прощание с Родиной», созданный в Гродненской губернии, сегодня известен во всём мире как символ романтической эпохи.</p>
+        <div class="section-cards">
+            <div class="section-card" onclick="showPage('musicians')">
+                <span class="sc-icon">🎵</span>
+                <div class="sc-title">Музыканты Гродно</div>
+                <p class="sc-desc">Композиторы, исполнители и дирижёры, чьи судьбы связаны с нашим городом</p>
+                <span class="sc-arrow">→</span>
             </div>
-        </div>
-        <div class="tradition-item">
-            <div class="tr-number">02</div>
-            <div>
-                <div class="tr-title">Календарные народные песни</div>
-                <p class="tr-text">Гродненщина сохранила богатый пласт обрядовых песен — купальских, жатвенных, масленичных. Этнографы фиксировали эти традиции с XIX века. Григорий Ширма, живший в Гродно, записал здесь тысячи народных мелодий.</p>
+            <div class="section-card" onclick="showPage('instruments')">
+                <span class="sc-icon">🎻</span>
+                <div class="sc-title">Народные инструменты</div>
+                <p class="sc-desc">Традиционные инструменты Гродненщины — живые голоса белорусской культуры</p>
+                <span class="sc-arrow">→</span>
             </div>
-        </div>
-        <div class="tradition-item">
-            <div class="tr-number">03</div>
-            <div>
-                <div class="tr-title">Джазовая эпоха</div>
-                <p class="tr-text">В 1940-е годы Гродно превратился в джазовую столицу региона. Государственный джаз-оркестр БССР под управлением Эдди Рознера неизменно собирал полные залы. Рознер говорил, что Гродно — очень близкий для него город.</p>
-            </div>
-        </div>
-        <div class="tradition-item">
-            <div class="tr-number">04</div>
-            <div>
-                <div class="tr-title">Современная музыкальная жизнь</div>
-                <p class="tr-text">Сегодня Гродно продолжает свою музыкальную историю. Детская музыкальная школа искусств №1 носит имя Юрия Семеняко. В городе проходят международные фестивали, работают оркестры и ансамбли, а на улице Советской вновь можно услышать живую музыку.</p>
+            <div class="section-card" onclick="showPage('traditions')">
+                <span class="sc-icon">🎭</span>
+                <div class="sc-title">Музыкальные традиции</div>
+                <p class="sc-desc">От старинных обрядовых песен до современных фестивалей — живая нить времён</p>
+                <span class="sc-arrow">→</span>
             </div>
         </div>
     </div>
-</div>
 
-<!-- ==================== МОДАЛЬНОЕ ОКНО ==================== -->
-<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
-    <div class="modal" id="modal">
-        <button class="modal-close" onclick="closeModal()">✕</button>
-        <div class="modal-top">
-            <p class="modal-eyebrow" id="m-eyebrow"></p>
-            <h3 class="modal-name"    id="m-name"></h3>
+    <!-- ==================== МУЗЫКАНТЫ ==================== -->
+    <div class="page" id="page-musicians">
+        <button class="back-btn" onclick="showPage('home')">← На главную</button>
+        <div class="page-header">
+            <p class="ph-eyebrow">Раздел I</p>
+            <h2 class="ph-title">Музыканты Гродно</h2>
+            <div class="ph-rule"><span></span></div>
+            <p class="ph-desc">Семь удивительных судеб — люди, чья музыка рождалась на берегах Немана</p>
         </div>
-        <div class="modal-body" id="m-body"></div>
+        <div class="musicians-grid" id="musicians-grid">
+            <!-- Карточки добавляются через JavaScript -->
+        </div>
     </div>
-</div>
 
-<script>
-/* ================================================
-   ДАННЫЕ О МУЗЫКАНТАХ
-   ================================================ */
-const MUSICIANS = [
-    {
-        id: 'oginsky',
-        initials: 'МО',
-        note: '♩',
-        years: '1765 — 1833',
-        name: 'Михаил Клеофас Огинский',
-        role: 'Композитор, политик, дипломат',
-        tags: ['Классика', 'Полонез', 'Гродненская губерния'],
-        eyebrow: 'Гродненская губерния · XVIII–XIX вв.',
-        bio: 'Михаил Клеофас Огинский — один из самых известных уроженцев белорусских земель. Его имение Залесье располагалось в Гродненской губернии. Именно здесь, по преданию, он создал свой знаменитый полонез ля минор — «Прощание с Родиной».',
-        quote: '«Прощание с Родиной» — одна из самых узнаваемых мелодий восточноевропейской классической музыки, ставшая символом романтической эпохи.',
-        details: 'Огинский был не только талантливым музыкантом, но и крупным политическим деятелем — сенатором Российской империи, участником восстания Костюшко. Трагедия родины, изгнание и ностальгия стали главными темами его творчества.\n\nВ Залесье он создал настоящий культурный центр — сюда съезжались музыканты, художники и литераторы. Усадьба сохранилась до наших дней и сегодня является музеем-заповедником.'
-    },
-    {
-        id: 'orda',
-        initials: 'НО',
-        note: '♪',
-        years: '1807 — 1883',
-        name: 'Наполеон Орда',
-        role: 'Пианист, композитор, художник',
-        tags: ['Классика', 'Фортепиано', 'Гродненщина'],
-        eyebrow: 'Гродненская губерния · XIX в.',
-        bio: 'Наполеон Орда родился в Гродненской губернии. Его называют учеником Шопена — великого польского композитора. Орда объездил всю Европу, однако всегда хранил память о родных местах.',
-        quote: 'Орда оставил более 1000 акварелей с видами белорусских, польских и литовских усадеб — бесценный исторический документ эпохи.',
-        details: 'Орда учился у Фредерика Шопена в Париже, стал одним из ведущих пианистов своего времени. В 1856 году он вернулся на родину и провёл масштабную экспедицию по белорусским землям, зарисовывая усадьбы, замки и памятники архитектуры.\n\nЕго акварели сегодня хранятся в ведущих музеях Польши, Беларуси и Литвы и являются важнейшим источником по истории архитектуры региона.'
-    },
-    {
-        id: 'rozner',
-        initials: 'ЭР',
-        note: '♫',
-        years: '1910 — 1976',
-        name: 'Эдди Рознер',
-        role: 'Джазовый трубач, дирижёр',
-        tags: ['Джаз', 'Оркестр', 'БССР'],
-        eyebrow: 'Гродно · 1940-е гг.',
-        bio: 'Эдди Рознер — один из ярчайших джазовых музыкантов своего времени. Именно он возглавлял Государственный джаз-оркестр БССР. Первый концерт этого коллектива в Гродно состоялся в 1940 году при участии исключительно талантливых музыкантов.',
-        quote: 'По словам самого Рознера, Гродно был очень близким для него городом. Каждый приезд неизменно собирал полные залы восторженных слушателей.',
-        details: 'Государственный джаз-оркестр БССР под управлением Рознера считался одним из лучших джазовых коллективов не только в СССР, но и в мире. Это был один из лучших коллективов в мире.\n\nВторой раз оркестр приехал в Гродно через несколько лет и вновь собрал полные залы. В 1969 году в следующий приезд оркестр дал целых 9 концертов — каждый при аншлаге.'
-    },
-    {
-        id: 'semenyako',
-        initials: 'ЮС',
-        note: '♩',
-        years: '1925 — 2009',
-        name: 'Юрий Семеняко',
-        role: 'Пианист, композитор, концертмейстер',
-        tags: ['Классика', 'Опера', 'Гродно'],
-        eyebrow: 'Гродно · XX в.',
-        bio: 'Юрий Семеняко — виртуозный пианист, родившийся в Минске. После войны он стал концертмейстером Белорусского ансамбля песни и танца в Гродно. Коллектив сразу принял его — талант был очевиден с первой встречи.',
-        quote: 'За свою жизнь Семеняко написал более 300 песен, несколько опер и музыку к кинофильмам и радиоспектаклям.',
-        details: 'Среди наиболее известных произведений Семеняко — оперы «Колючая роза», «Когда опадают листья», «Зорка Венера» и «Новая земля». Значительное место в его творчестве занимала музыка к кинофильмам; он был автором радиоспектаклей «Тимур и его команда», «Весёлый Буратино».\n\nВ 1974 году ему было присвоено звание Народного артиста БССР. В 1995 году Детская музыкальная школа искусств №1 г. Гродно стала носить его имя, а в 2009 году на здании школы была установлена мемориальная доска.'
-    },
-    {
-        id: 'shirma',
-        initials: 'ГШ',
-        note: '𝄞',
-        years: '1892 — 1978',
-        name: 'Григорий Ширма',
-        role: 'Хоровой дирижёр, фольклорист',
-        tags: ['Фольклор', 'Хор', 'Гродно'],
-        eyebrow: 'Гродно · 1944–1951 гг.',
-        bio: 'Григорий Ширма — один из крупнейших собирателей белорусского музыкального фольклора. С 1944 по 1951 год он проживал в Гродно по адресу ул. 1 Мая, 2 — где сегодня установлена мемориальная доска. В городе он основал хор.',
-        quote: 'За всю жизнь Григорий Ширма собрал около 6000 народных песен — уникальное собрание, равных которому нет в Беларуси.',
-        details: 'Родившись в 1892 году в бедной крестьянской семье, Ширма в 12 лет тайно от отца сбежал из дома, чтобы поступить в местное училище. Так начался его путь к музыке.\n\nВ 1907 году он отправился в этнографическую экспедицию: переходил из деревни в деревню и записывал народные песни. Жена Клавдия поддерживала его на протяжении 30 лет и пела в его хоре.\n\nМемориальная доска на доме, где жил Ширма, сохранилась в Гродно до наших дней.'
-    },
-    {
-        id: 'niemen',
-        initials: 'ЧН',
-        note: '♫',
-        years: '1939 — 2004',
-        name: 'Чеслав Немен',
-        role: 'Рок-музыкант, певец',
-        tags: ['Рок', 'Гродно', 'Европа'],
-        eyebrow: 'Гродненская обл. · 16 февраля 1939 г.',
-        bio: 'Чеслав Немен родился 16 февраля 1939 года в деревне Старые Василишки Щучинского района. Всю юность он провёл в Гродно и учился в местном музыкальном училище, прежде чем переехать в Польшу.',
-        quote: 'В 1974 году для записи альбома Немена компании пришлось заплатить 60 000 долларов — огромная по тем временам сумма.',
-        details: 'Переехав в Польшу, Немен вступил в состав популярной рок-группы «Небеско-Чарные». В 1962 году он стал финалистом первого фестиваля молодых талантов.\n\nВ начале 1970-х слава Чеслава Немена распространилась на всю Европу. Он выступал на Кубе, в США, Франции, Италии, Германии, Дании, Финляндии, Румынии, Болгарии, Швеции, Великобритании, Австрии, Австралии и Испании.\n\nНесмотря на статус рок-звезды, в обычной жизни Чеслав оставался спокойным человеком — обожал самостоятельно чинить и ремонтировать вещи.'
-    },
-    {
-        id: 'droetska',
-        initials: 'ВД',
-        note: '♪',
-        years: '1939 — наст. вр.',
-        name: 'Веслава Дроецка',
-        role: 'Певица, звезда мировой эстрады',
-        tags: ['Эстрада', 'Польша', 'Гродно'],
-        eyebrow: 'Гродно · 21 октября 1939 г.',
-        bio: 'Веслава Дроецка родилась в Гродно 21 октября 1939 года. Во время войны её вывезли на восток. После освобождения она добиралась домой в Гродно целых три месяца — поездом, через всю страну.',
-        quote: 'Во время выступления в Ташкенте началось землетрясение, но певица не подала виду и допела концерт до конца.',
-        details: 'Музыкальная карьера Дроецкой началась неожиданно — её пригласили записать песню для художественного фильма. Затем последовали первое место в конкурсе певцов польского радио (1959) и первая пластинка.\n\nВ 1960 году её хит «Немного осени» стал невероятно популярным. В 1961 году певица отправилась в турне по Европе и Азии.\n\nВо время концерта в московских Лужниках на её выступление пришли более 30 000 человек. Музыке Веслава Дроецка посвятила более 40 лет жизни.'
-    }
-];
+    <!-- ==================== ИНСТРУМЕНТЫ ==================== -->
+    <div class="page" id="page-instruments">
+        <button class="back-btn" onclick="showPage('home')">← На главную</button>
+        <div class="page-header">
+            <p class="ph-eyebrow">Раздел II</p>
+            <h2 class="ph-title">Народные инструменты</h2>
+            <div class="ph-rule"><span></span></div>
+            <p class="ph-desc">Голоса белорусской земли — инструменты, хранящие память Гродненщины</p>
+        </div>
+        <div class="instruments-grid">
+            <div class="instrument-card">
+                <span class="ic-icon">🪘</span>
+                <div class="ic-name">Цымбалы</div>
+                <p class="ic-desc">Главный символ белорусской народной музыки. Гродненщина — один из исторических
+                    центров этой традиции. Инструмент прост внешне, но удивительно богат по звучанию.</p>
+            </div>
+            <div class="instrument-card">
+                <span class="ic-icon">🎵</span>
+                <div class="ic-name">Дуда</div>
+                <p class="ic-desc">Белорусская волынка. Живая традиция игры на дуде сохранялась в западных районах
+                    Беларуси дольше всего — Гродненщина стала последним очагом этого искусства.</p>
+            </div>
+            <div class="instrument-card">
+                <span class="ic-icon">🎶</span>
+                <div class="ic-name">Колёсная лира</div>
+                <p class="ic-desc">Инструмент странствующих лирников. Они ходили по ярмаркам и храмовым праздникам всего
+                    Гродненского региона, передавая новости и предания в песнях.</p>
+            </div>
+            <div class="instrument-card">
+                <span class="ic-icon">🪈</span>
+                <div class="ic-name">Жалейка</div>
+                <p class="ic-desc">Духовой инструмент пастухов. Простой по устройству, но богатый по выразительности —
+                    подлинный голос белорусских лугов и лесов.</p>
+            </div>
+        </div>
+    </div>
 
-/* ================================================
-   НАВИГАЦИЯ МЕЖДУ СТРАНИЦАМИ
-   ================================================ */
-function showPage(id) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-' + id).classList.add('active');
-    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-    const navLink = document.getElementById('nav-' + id);
-    if (navLink) navLink.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+    <!-- ==================== ТРАДИЦИИ ==================== -->
+    <div class="page" id="page-traditions">
+        <button class="back-btn" onclick="showPage('home')">← На главную</button>
+        <div class="page-header">
+            <p class="ph-eyebrow">Раздел III</p>
+            <h2 class="ph-title">Музыкальные традиции</h2>
+            <div class="ph-rule"><span></span></div>
+            <p class="ph-desc">От полонеза до рока — музыкальное время Гродно сквозь века</p>
+        </div>
+        <div class="traditions-list">
+            <div class="tradition-item">
+                <div class="tr-number">01</div>
+                <div>
+                    <div class="tr-title">Традиция полонеза</div>
+                    <p class="tr-text">Польский придворный танец стал частью гродненской идентичности в эпоху Речи
+                        Посполитой. Полонез Огинского «Прощание с Родиной», созданный в Гродненской губернии, сегодня
+                        известен во всём мире как символ романтической эпохи.</p>
+                </div>
+            </div>
+            <div class="tradition-item">
+                <div class="tr-number">02</div>
+                <div>
+                    <div class="tr-title">Календарные народные песни</div>
+                    <p class="tr-text">Гродненщина сохранила богатый пласт обрядовых песен — купальских, жатвенных,
+                        масленичных. Этнографы фиксировали эти традиции с XIX века. Григорий Ширма, живший в Гродно,
+                        записал здесь тысячи народных мелодий.</p>
+                </div>
+            </div>
+            <div class="tradition-item">
+                <div class="tr-number">03</div>
+                <div>
+                    <div class="tr-title">Джазовая эпоха</div>
+                    <p class="tr-text">В 1940-е годы Гродно превратился в джазовую столицу региона. Государственный
+                        джаз-оркестр БССР под управлением Эдди Рознера неизменно собирал полные залы. Рознер говорил,
+                        что Гродно — очень близкий для него город.</p>
+                </div>
+            </div>
+            <div class="tradition-item">
+                <div class="tr-number">04</div>
+                <div>
+                    <div class="tr-title">Современная музыкальная жизнь</div>
+                    <p class="tr-text">Сегодня Гродно продолжает свою музыкальную историю. Детская музыкальная школа
+                        искусств №1 носит имя Юрия Семеняко. В городе проходят международные фестивали, работают
+                        оркестры и ансамбли, а на улице Советской вновь можно услышать живую музыку.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-function nav(id) {
-    showPage(id);
-    return false; // Предотвращаем переход по href="#"
-}
+    <!-- ==================== МОДАЛЬНОЕ ОКНО ==================== -->
+    <div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+        <div class="modal" id="modal">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="modal-top">
+                <p class="modal-eyebrow" id="m-eyebrow"></p>
+                <h3 class="modal-name" id="m-name"></h3>
+            </div>
+            <div class="modal-body" id="m-body"></div>
+        </div>
+    </div>
 
-/* ================================================
-   РЕНДЕР КАРТОЧЕК МУЗЫКАНТОВ
-   ================================================ */
-function renderMusicians() {
-    const grid = document.getElementById('musicians-grid');
-    grid.innerHTML = MUSICIANS.map(m => `
+    <script>
+        /* ================================================
+           ДАННЫЕ О МУЗЫКАНТАХ
+           ================================================ */
+        const MUSICIANS = [
+            {
+                id: 'oginsky',
+                image: 'oginsky.jpg',
+                note: '♩',
+                years: '1765 — 1833',
+                name: 'Михаил Клеофас Огинский',
+                role: 'Композитор, политик, дипломат',
+                tags: ['Классика', 'Полонез', 'Гродненская губерния'],
+                eyebrow: 'Гродненская губерния · XVIII–XIX вв.',
+                bio: 'Михаил Клеофас Огинский — один из самых известных уроженцев белорусских земель. Его имение Залесье располагалось в Гродненской губернии. Именно здесь, по преданию, он создал свой знаменитый полонез ля минор — «Прощание с Родиной».',
+                quote: '«Прощание с Родиной» — одна из самых узнаваемых мелодий восточноевропейской классической музыки, ставшая символом романтической эпохи.',
+                details: 'Огинский был не только талантливым музыкантом, но и крупным политическим деятелем — сенатором Российской империи, участником восстания Костюшко. Трагедия родины, изгнание и ностальгия стали главными темами его творчества.\n\nВ Залесье он создал настоящий культурный центр — сюда съезжались музыканты, художники и литераторы. Усадьба сохранилась до наших дней и сегодня является музеем-заповедником.'
+            },
+            {
+                id: 'orda',
+                image: 'orda.jpg',
+                note: '♪',
+                years: '1807 — 1883',
+                name: 'Наполеон Орда',
+                role: 'Пианист, композитор, художник',
+                tags: ['Классика', 'Фортепиано', 'Гродненщина'],
+                eyebrow: 'Гродненская губерния · XIX в.',
+                bio: 'Наполеон Орда родился в Гродненской губернии. Его называют учеником Шопена — великого польского композитора. Орда объездил всю Европу, однако всегда хранил память о родных местах.',
+                quote: 'Орда оставил более 1000 акварелей с видами белорусских, польских и литовских усадеб — бесценный исторический документ эпохи.',
+                details: 'Орда учился у Фредерика Шопена в Париже, стал одним из ведущих пианистов своего времени. В 1856 году он вернулся на родину и провёл масштабную экспедицию по белорусским землям, зарисовывая усадьбы, замки и памятники архитектуры.\n\nЕго акварели сегодня хранятся в ведущих музеях Польши, Беларуси и Литвы и являются важнейшим источником по истории архитектуры региона.'
+            },
+            {
+                id: 'rozner',
+                image: 'rozner.jpg',
+                note: '♫',
+                years: '1910 — 1976',
+                name: 'Эдди Рознер',
+                role: 'Джазовый трубач, дирижёр',
+                tags: ['Джаз', 'Оркестр', 'БССР'],
+                eyebrow: 'Гродно · 1940-е гг.',
+                bio: 'Эдди Рознер — один из ярчайших джазовых музыкантов своего времени. Именно он возглавлял Государственный джаз-оркестр БССР. Первый концерт этого коллектива в Гродно состоялся в 1940 году при участии исключительно талантливых музыкантов.',
+                quote: 'По словам самого Рознера, Гродно был очень близким для него городом. Каждый приезд неизменно собирал полные залы восторженных слушателей.',
+                details: 'Государственный джаз-оркестр БССР под управлением Рознера считался одним из лучших джазовых коллективов не только в СССР, но и в мире. Это был один из лучших коллективов в мире.\n\nВторой раз оркестр приехал в Гродно через несколько лет и вновь собрал полные залы. В 1969 году в следующий приезд оркестр дал целых 9 концертов — каждый при аншлаге.'
+            },
+            {
+                id: 'semenyako',
+                image: 'semenyako.jpg',
+                note: '♩',
+                years: '1925 — 2009',
+                name: 'Юрий Семеняко',
+                role: 'Пианист, композитор, концертмейстер',
+                tags: ['Классика', 'Опера', 'Гродно'],
+                eyebrow: 'Гродно · XX в.',
+                bio: 'Юрий Семеняко — виртуозный пианист, родившийся в Минске. После войны он стал концертмейстером Белорусского ансамбля песни и танца в Гродно. Коллектив сразу принял его — талант был очевиден с первой встречи.',
+                quote: 'За свою жизнь Семеняко написал более 300 песен, несколько опер и музыку к кинофильмам и радиоспектаклям.',
+                details: 'Среди наиболее известных произведений Семеняко — оперы «Колючая роза», «Когда опадают листья», «Зорка Венера» и «Новая земля». Значительное место в его творчестве занимала музыка к кинофильмам; он был автором радиоспектаклей «Тимур и его команда», «Весёлый Буратино».\n\nВ 1974 году ему было присвоено звание Народного артиста БССР. В 1995 году Детская музыкальная школа искусств №1 г. Гродно стала носить его имя, а в 2009 году на здании школы была установлена мемориальная доска.'
+            },
+            {
+                id: 'shirma',
+                image: 'shirma.jpg',
+                note: '𝄞',
+                years: '1892 — 1978',
+                name: 'Григорий Ширма',
+                role: 'Хоровой дирижёр, фольклорист',
+                tags: ['Фольклор', 'Хор', 'Гродно'],
+                eyebrow: 'Гродно · 1944–1951 гг.',
+                bio: 'Григорий Ширма — один из крупнейших собирателей белорусского музыкального фольклора. С 1944 по 1951 год он проживал в Гродно по адресу ул. 1 Мая, 2 — где сегодня установлена мемориальная доска. В городе он основал хор.',
+                quote: 'За всю жизнь Григорий Ширма собрал около 6000 народных песен — уникальное собрание, равных которому нет в Беларуси.',
+                details: 'Родившись в 1892 году в бедной крестьянской семье, Ширма в 12 лет тайно от отца сбежал из дома, чтобы поступить в местное училище. Так начался его путь к музыке.\n\nВ 1907 году он отправился в этнографическую экспедицию: переходил из деревни в деревню и записывал народные песни. Жена Клавдия поддерживала его на протяжении 30 лет и пела в его хоре.\n\nМемориальная доска на доме, где жил Ширма, сохранилась в Гродно до наших дней.'
+            },
+            {
+                id: 'niemen',
+                image: 'niemen.jpg',
+                note: '♫',
+                years: '1939 — 2004',
+                name: 'Чеслав Немен',
+                role: 'Рок-музыкант, певец',
+                tags: ['Рок', 'Гродно', 'Европа'],
+                eyebrow: 'Гродненская обл. · 16 февраля 1939 г.',
+                bio: 'Чеслав Немен родился 16 февраля 1939 года в деревне Старые Василишки Щучинского района. Всю юность он провёл в Гродно и учился в местном музыкальном училище, прежде чем переехать в Польшу.',
+                quote: 'В 1974 году для записи альбома Немена компании пришлось заплатить 60 000 долларов — огромная по тем временам сумма.',
+                details: 'Переехав в Польшу, Немен вступил в состав популярной рок-группы «Небеско-Чарные». В 1962 году он стал финалистом первого фестиваля молодых талантов.\n\nВ начале 1970-х слава Чеслава Немена распространилась на всю Европу. Он выступал на Кубе, в США, Франции, Италии, Германии, Дании, Финляндии, Румынии, Болгарии, Швеции, Великобритании, Австрии, Австралии и Испании.\n\nНесмотря на статус рок-звезды, в обычной жизни Чеслав оставался спокойным человеком — обожал самостоятельно чинить и ремонтировать вещи.'
+            },
+            {
+                id: 'droetska',
+                image: 'droetska.jpg',
+                note: '♪',
+                years: '1939 — наст. вр.',
+                name: 'Веслава Дроецка',
+                role: 'Певица, звезда мировой эстрады',
+                tags: ['Эстрада', 'Польша', 'Гродно'],
+                eyebrow: 'Гродно · 21 октября 1939 г.',
+                bio: 'Веслава Дроецка родилась в Гродно 21 октября 1939 года. Во время войны её вывезли на восток. После освобождения она добиралась домой в Гродно целых три месяца — поездом, через всю страну.',
+                quote: 'Во время выступления в Ташкенте началось землетрясение, но певица не подала виду и допела концерт до конца.',
+                details: 'Музыкальная карьера Дроецкой началась неожиданно — её пригласили записать песню для художественного фильма. Затем последовали первое место в конкурсе певцов польского радио (1959) и первая пластинка.\n\nВ 1960 году её хит «Немного осени» стал невероятно популярным. В 1961 году певица отправилась в турне по Европе и Азии.\n\nВо время концерта в московских Лужниках на её выступление пришли более 30 000 человек. Музыке Веслава Дроецка посвятила более 40 лет жизни.'
+            }
+        ];
+
+        /* ================================================
+           НАВИГАЦИЯ МЕЖДУ СТРАНИЦАМИ
+           ================================================ */
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page-' + id).classList.add('active');
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+            const navLink = document.getElementById('nav-' + id);
+            if (navLink) navLink.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function nav(id) {
+            showPage(id);
+            return false; // Предотвращаем переход по href="#"
+        }
+
+        /* ================================================
+           РЕНДЕР КАРТОЧЕК МУЗЫКАНТОВ
+           ================================================ */
+        function renderMusicians() {
+            const grid = document.getElementById('musicians-grid');
+            grid.innerHTML = MUSICIANS.map(m => `
         <article class="musician-card" onclick="openModal('${m.id}')" role="button" tabindex="0">
             <div class="mc-portrait" data-note="${m.note}">
-                <div class="mc-initials-ring">${m.initials}</div>
+                <img src="${m.image}" alt="${m.name}" class="mc-photo">
             </div>
             <div class="mc-body">
                 <div class="mc-years">${m.years}</div>
@@ -994,24 +1079,24 @@ function renderMusicians() {
         </article>
     `).join('');
 
-    // Клавиатурная доступность
-    grid.querySelectorAll('.musician-card').forEach(card => {
-        card.addEventListener('keydown', e => {
-            if (e.key === 'Enter' || e.key === ' ') card.click();
-        });
-    });
-}
+            // Клавиатурная доступность
+            grid.querySelectorAll('.musician-card').forEach(card => {
+                card.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') card.click();
+                });
+            });
+        }
 
-/* ================================================
-   МОДАЛЬНОЕ ОКНО
-   ================================================ */
-function openModal(id) {
-    const m = MUSICIANS.find(x => x.id === id);
-    if (!m) return;
+        /* ================================================
+           МОДАЛЬНОЕ ОКНО
+           ================================================ */
+        function openModal(id) {
+            const m = MUSICIANS.find(x => x.id === id);
+            if (!m) return;
 
-    document.getElementById('m-eyebrow').textContent = m.eyebrow;
-    document.getElementById('m-name').textContent    = m.name;
-    document.getElementById('m-body').innerHTML = `
+            document.getElementById('m-eyebrow').textContent = m.eyebrow;
+            document.getElementById('m-name').textContent = m.name;
+            document.getElementById('m-body').innerHTML = `
         <p class="modal-section-label">О музыканте</p>
         <p class="modal-text">${m.bio}</p>
         <blockquote class="modal-quote">${m.quote}</blockquote>
@@ -1019,31 +1104,32 @@ function openModal(id) {
         <p class="modal-text">${m.details.replace(/\n\n/g, '</p><p class="modal-text" style="margin-top:0.9rem">')}</p>
     `;
 
-    document.getElementById('modal-overlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-}
+            document.getElementById('modal-overlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
 
-function closeModal() {
-    document.getElementById('modal-overlay').classList.remove('open');
-    document.body.style.overflow = '';
-}
+        function closeModal() {
+            document.getElementById('modal-overlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
 
-function handleOverlayClick(e) {
-    // Закрываем только при клике на тёмный фон, а не на само окно
-    if (e.target === document.getElementById('modal-overlay')) closeModal();
-}
+        function handleOverlayClick(e) {
+            // Закрываем только при клике на тёмный фон, а не на само окно
+            if (e.target === document.getElementById('modal-overlay')) closeModal();
+        }
 
-// Закрытие по Escape
-document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeModal();
-});
+        // Закрытие по Escape
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeModal();
+        });
 
-/* ================================================
-   ИНИЦИАЛИЗАЦИЯ
-   ================================================ */
-renderMusicians();
-// Делаем первый пункт навигации активным
-document.getElementById('nav-home').classList.add('active');
-</script>
+        /* ================================================
+           ИНИЦИАЛИЗАЦИЯ
+           ================================================ */
+        renderMusicians();
+        // Делаем первый пункт навигации активным
+        document.getElementById('nav-home').classList.add('active');
+    </script>
 </body>
+
 </html>
