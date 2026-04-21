@@ -292,7 +292,7 @@
             object-fit: cover;
             display: block;
             filter: brightness(0.72) sepia(0.25);
-            transition: filter 0.4s ease, transform 0.5s cubic-bezier(.16,1,.3,1);
+            transition: filter 0.4s ease, transform 0.5s cubic-bezier(.16, 1, .3, 1);
             transform-origin: center;
         }
 
@@ -306,7 +306,8 @@
             overflow: hidden;
             width: 100%;
             height: 170px;
-            margin: -2.75rem -2rem 1.4rem; /* «вытаскиваем» за padding карточки */
+            margin: -2.75rem -2rem 1.4rem;
+            /* «вытаскиваем» за padding карточки */
             width: calc(100% + 4rem);
         }
 
@@ -651,14 +652,30 @@
             animation: none;
         }
 
-        .ic-play-btn.playing .waves span:nth-child(1) { animation: wave 0.8s 0.0s infinite ease-in-out alternate; }
-        .ic-play-btn.playing .waves span:nth-child(2) { animation: wave 0.8s 0.15s infinite ease-in-out alternate; }
-        .ic-play-btn.playing .waves span:nth-child(3) { animation: wave 0.8s 0.3s infinite ease-in-out alternate; }
-        .ic-play-btn.playing .waves span:nth-child(4) { animation: wave 0.8s 0.45s infinite ease-in-out alternate; }
+        .ic-play-btn.playing .waves span:nth-child(1) {
+            animation: wave 0.8s 0.0s infinite ease-in-out alternate;
+        }
+
+        .ic-play-btn.playing .waves span:nth-child(2) {
+            animation: wave 0.8s 0.15s infinite ease-in-out alternate;
+        }
+
+        .ic-play-btn.playing .waves span:nth-child(3) {
+            animation: wave 0.8s 0.3s infinite ease-in-out alternate;
+        }
+
+        .ic-play-btn.playing .waves span:nth-child(4) {
+            animation: wave 0.8s 0.45s infinite ease-in-out alternate;
+        }
 
         @keyframes wave {
-            from { height: 3px; }
-            to   { height: 14px; }
+            from {
+                height: 3px;
+            }
+
+            to {
+                height: 14px;
+            }
         }
 
         /* ============================
@@ -895,10 +912,8 @@
             <div class="section-card" onclick="showPage('musicians')">
                 <!-- Портрет Огинского — Public Domain, Wikimedia Commons -->
                 <div class="sc-cover-wrap">
-                    <img class="sc-cover"
-                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Michal_Kleofas_Oginski.PNG/320px-Michal_Kleofas_Oginski.PNG"
-                         alt="Михаил Клеофас Огинский"
-                         onerror="this.style.display='none'">
+                    <img class="sc-cover" src="cover.jpg" alt="Михаил Клеофас Огинский"
+                        onerror="this.style.display='none'">
                 </div>
                 <div class="sc-title">Музыканты Гродно</div>
                 <p class="sc-desc">Композиторы, исполнители и дирижёры, чьи судьбы связаны с нашим городом</p>
@@ -907,10 +922,8 @@
             <div class="section-card" onclick="showPage('instruments')">
                 <!-- Белорусские цымбалы — Public Domain, Wikimedia Commons -->
                 <div class="sc-cover-wrap">
-                    <img class="sc-cover"
-                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Belarusian_tsymbaly.jpg/320px-Belarusian_tsymbaly.jpg"
-                         alt="Белорусские цымбалы"
-                         onerror="this.style.display='none'">
+                    <img class="sc-cover" src="cover1.jpg" alt="Белорусские цымбалы"
+                        onerror="this.style.display='none'">
                 </div>
                 <div class="sc-title">Народные инструменты</div>
                 <p class="sc-desc">Традиционные инструменты Гродненщины — живые голоса белорусской культуры</p>
@@ -919,10 +932,8 @@
             <div class="section-card" onclick="showPage('traditions')">
                 <!-- Старый Гродно / Коложская церковь — Public Domain, Wikimedia Commons -->
                 <div class="sc-cover-wrap">
-                    <img class="sc-cover"
-                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Kalozha_church_Grodno.jpg/320px-Kalozha_church_Grodno.jpg"
-                         alt="Гродно, Коложская церковь"
-                         onerror="this.style.display='none'">
+                    <img class="sc-cover" src="cover2.jpg" alt="Гродно, Коложская церковь"
+                        onerror="this.style.display='none'">
                 </div>
                 <div class="sc-title">Музыкальные традиции</div>
                 <p class="sc-desc">От старинных обрядовых песен до современных фестивалей — живая нить времён</p>
@@ -1118,7 +1129,7 @@
             },
             {
                 id: 'shirma',
-                image: 'shirma.jpg',
+                image: 'shirma.jpeg',
                 note: '𝄞',
                 years: '1892 — 1978',
                 name: 'Григорий Ширма',
@@ -1277,10 +1288,10 @@
 
             // Выбираем нужный синтезатор
             switch (type) {
-                case 'tsymbaly':  currentStop = playTsymbaly();  break;
-                case 'duda':      currentStop = playDuda();       break;
-                case 'lyra':      currentStop = playLyra();       break;
-                case 'zhaleyka':  currentStop = playZhaleyka();   break;
+                case 'tsymbaly': currentStop = playTsymbaly(); break;
+                case 'duda': currentStop = playDuda(); break;
+                case 'lyra': currentStop = playLyra(); break;
+                case 'zhaleyka': currentStop = playZhaleyka(); break;
             }
         }
 
@@ -1391,7 +1402,7 @@
                 clearTimeout(tid);
                 masterGain.gain.setValueAtTime(masterGain.gain.value, ctx.currentTime);
                 masterGain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.3);
-                setTimeout(() => { try { drone.stop(); mel.stop(); lfo.stop(); } catch(e){} }, 400);
+                setTimeout(() => { try { drone.stop(); mel.stop(); lfo.stop(); } catch (e) { } }, 400);
                 if (activeBtn) { activeBtn.classList.remove('playing'); activeBtn = null; }
                 currentStop = null;
             };
@@ -1443,7 +1454,7 @@
             const totalMs = (notes.length * step + 0.8) * 1000;
             const tid = setTimeout(() => {
                 masterGain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.6);
-                setTimeout(() => { try { osc.stop(); drone.stop(); tremLFO.stop(); } catch(e){} }, 700);
+                setTimeout(() => { try { osc.stop(); drone.stop(); tremLFO.stop(); } catch (e) { } }, 700);
                 if (activeBtn) { activeBtn.classList.remove('playing'); activeBtn = null; }
                 currentStop = null;
             }, totalMs);
@@ -1451,7 +1462,7 @@
             return () => {
                 clearTimeout(tid);
                 masterGain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.3);
-                setTimeout(() => { try { osc.stop(); drone.stop(); tremLFO.stop(); } catch(e){} }, 400);
+                setTimeout(() => { try { osc.stop(); drone.stop(); tremLFO.stop(); } catch (e) { } }, 400);
                 if (activeBtn) { activeBtn.classList.remove('playing'); activeBtn = null; }
                 currentStop = null;
             };
