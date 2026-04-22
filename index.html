@@ -10,6 +10,94 @@
         rel="stylesheet">
     <style>
         /* ============================
+           АЎДЫЁ КНОПКІ І АНІМАЦЫЯ
+           ============================ */
+        .play-synth-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-top: 1.2rem;
+            padding: 0.6rem 1.2rem;
+            background: transparent;
+            border: 1px solid var(--gold-border);
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            min-width: 160px;
+        }
+
+        .play-synth-btn:hover {
+            border-color: var(--gold);
+            background: var(--gold-dim);
+            color: var(--cream);
+        }
+
+        .play-synth-btn.playing {
+            background: var(--gold);
+            color: var(--bg);
+            border-color: var(--gold);
+        }
+
+        /* Анимация звуковых волн */
+        .wave-icon {
+            display: none;
+            align-items: flex-end;
+            gap: 3px;
+            height: 14px;
+        }
+
+        .play-synth-btn.playing .wave-icon {
+            display: flex;
+        }
+
+        .wave-icon span {
+            display: block;
+            width: 3px;
+            background-color: var(--bg);
+            border-radius: 2px;
+            animation: wave 1s infinite ease-in-out;
+        }
+
+        .wave-icon span:nth-child(1) {
+            height: 6px;
+            animation-delay: -0.2s;
+        }
+
+        .wave-icon span:nth-child(2) {
+            height: 14px;
+            animation-delay: -0.4s;
+        }
+
+        .wave-icon span:nth-child(3) {
+            height: 10px;
+            animation-delay: -0.6s;
+        }
+
+        .wave-icon span:nth-child(4) {
+            height: 8px;
+            animation-delay: -0.8s;
+        }
+
+        @keyframes wave {
+
+            0%,
+            100% {
+                transform: scaleY(0.4);
+            }
+
+            50% {
+                transform: scaleY(1);
+            }
+        }
+
+        /* ============================
            ПЕРЕМЕННЫЕ И СБРОС
            ============================ */
         :root {
@@ -857,26 +945,42 @@
             <div class="instrument-card">
                 <span class="ic-icon">🪘</span>
                 <div class="ic-name">Цымбалы</div>
-                <p class="ic-desc">Галоўны сімвал беларускай народнай музыкі. Гродзеншчына — адзін з гістарычных
-                    цэнтраў гэтай традыцыі. Інструмент просты знешне, але дзіўна багаты па гучанні.</p>
+                <p class="ic-desc">Галоўны сімвал беларускай народнай музыкі. Гродзеншчына — адзін з гістарычных цэнтраў
+                    гэтай традыцыі. Інструмент просты знешне, але дзіўна багаты па гучанні.</p>
+                <button class="play-synth-btn" onclick="toggleSynth(this, 'tsymbaly')">
+                    <span class="btn-text">🔊 Праслухаць</span>
+                    <div class="wave-icon"><span></span><span></span><span></span><span></span></div>
+                </button>
             </div>
             <div class="instrument-card">
                 <span class="ic-icon">🎵</span>
                 <div class="ic-name">Дуда</div>
                 <p class="ic-desc">Беларуская валынка. Жывая традыцыя гульні на дудзе захоўвалася ў заходніх раёнах
                     Беларусі даўжэй за ўсё — Гродзеншчына стала апошнім ачагом гэтага мастацтва.</p>
+                <button class="play-synth-btn" onclick="toggleSynth(this, 'duda')">
+                    <span class="btn-text">🔊 Праслухаць</span>
+                    <div class="wave-icon"><span></span><span></span><span></span><span></span></div>
+                </button>
             </div>
             <div class="instrument-card">
                 <span class="ic-icon">🎶</span>
                 <div class="ic-name">Колавая ліра</div>
                 <p class="ic-desc">Інструмент вандроўных лірнікаў. Яны хадзілі па кірмашах і храмавых святах па ўсім
                     Гродзенскім рэгіёне, перадаючы навіны і паданні ў песнях.</p>
+                <button class="play-synth-btn" onclick="toggleSynth(this, 'lira')">
+                    <span class="btn-text">🔊 Праслухаць</span>
+                    <div class="wave-icon"><span></span><span></span><span></span><span></span></div>
+                </button>
             </div>
             <div class="instrument-card">
                 <span class="ic-icon">🪈</span>
                 <div class="ic-name">Жалейка</div>
                 <p class="ic-desc">Духавы інструмент пастухоў. Просты па ўладкаванні, але багаты па выразнасці —
                     сапраўдны голас беларускіх лугоў і лясоў.</p>
+                <button class="play-synth-btn" onclick="toggleSynth(this, 'zhaleika')">
+                    <span class="btn-text">🔊 Праслухаць</span>
+                    <div class="wave-icon"><span></span><span></span><span></span><span></span></div>
+                </button>
             </div>
         </div>
     </div>
@@ -1001,7 +1105,7 @@
             },
             {
                 id: 'shirma',
-                image: 'shirma.jpg',
+                image: 'shirma.jpeg',
                 note: '𝄞',
                 years: '1892 — 1978',
                 name: 'Рыгор Шырма',
@@ -1129,6 +1233,202 @@
         renderMusicians();
         // Делаем первый пункт навигации активным
         document.getElementById('nav-home').classList.add('active');
+        /* ================================================
+           WEB AUDIO API СІНТЭЗАТАР (Без знешніх файлаў)
+           ================================================ */
+        let audioCtx;
+        let activeNodes = [];
+        let synthInterval = null;
+        let activeBtn = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function stopAudio() {
+            // Останавливаем все активные звуковые узлы
+            activeNodes.forEach(node => {
+                try { node.stop(); } catch (e) { }
+                try { node.disconnect(); } catch (e) { }
+            });
+            activeNodes = [];
+
+            // Очищаем интервалы (например, для перебора нот цимбал)
+            if (synthInterval) clearInterval(synthInterval);
+
+            // Возвращаем кнопку в исходное состояние
+            if (activeBtn) {
+                activeBtn.classList.remove('playing');
+                activeBtn.querySelector('.btn-text').textContent = '🔊 Праслухаць';
+                activeBtn = null;
+            }
+        }
+
+        function toggleSynth(btn, instrument) {
+            initAudio();
+
+            // Если нажали на ту же кнопку, которая сейчас играет — выключаем
+            if (activeBtn === btn) {
+                stopAudio();
+                return;
+            }
+
+            // Иначе останавливаем текущий звук и запускаем новый
+            stopAudio();
+            activeBtn = btn;
+            btn.classList.add('playing');
+            btn.querySelector('.btn-text').textContent = 'Спыніць';
+
+            const now = audioCtx.currentTime;
+
+            // --- 1. ЦЫМБАЛЫ (Короткие звонкие удары) ---
+            if (instrument === 'tsymbaly') {
+                const notes = [440, 493.88, 554.37, 659.25, 739.99]; // Пентатоника
+                let noteIdx = 0;
+
+                function pluck() {
+                    const osc = audioCtx.createOscillator();
+                    const gainNode = audioCtx.createGain();
+
+                    osc.type = 'triangle'; // Треугольная волна даёт струнный звон
+                    osc.frequency.setValueAtTime(notes[noteIdx % notes.length], audioCtx.currentTime);
+
+                    // Резкая атака и быстрое затухание
+                    gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+                    gainNode.gain.linearRampToValueAtTime(0.6, audioCtx.currentTime + 0.02);
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.2);
+
+                    osc.connect(gainNode);
+                    gainNode.connect(audioCtx.destination);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 1.2);
+
+                    activeNodes.push(osc);
+                    noteIdx++;
+                }
+
+                pluck(); // Первый удар
+                synthInterval = setInterval(pluck, 250); // Перебор струн каждые 250мс
+            }
+
+            // --- 2. ДУДА (Бурдонный гул + вибрато) ---
+            else if (instrument === 'duda') {
+                // Бурдон (низкий непрерывный тон)
+                const drone = audioCtx.createOscillator();
+                const droneGain = audioCtx.createGain();
+                drone.type = 'sawtooth';
+                drone.frequency.value = 110; // A2
+                droneGain.gain.value = 0.25;
+
+                drone.connect(droneGain);
+                droneGain.connect(audioCtx.destination);
+                drone.start();
+                activeNodes.push(drone);
+
+                // Мелодическая трубка (с вибрато)
+                const chanter = audioCtx.createOscillator();
+                const chanterGain = audioCtx.createGain();
+                chanter.type = 'square';
+                chanter.frequency.value = 440; // A4
+                chanterGain.gain.value = 0.1;
+
+                // LFO для эффекта вибрато (дыхание)
+                const lfo = audioCtx.createOscillator();
+                const lfoGain = audioCtx.createGain();
+                lfo.type = 'sine';
+                lfo.frequency.value = 4; // Скорость вибрато
+                lfoGain.gain.value = 8; // Глубина вибрато
+
+                lfo.connect(lfoGain);
+                lfoGain.connect(chanter.frequency);
+                lfo.start();
+
+                chanter.connect(chanterGain);
+                chanterGain.connect(audioCtx.destination);
+                chanter.start();
+
+                activeNodes.push(chanter, lfo);
+            }
+
+            // --- 3. КОЛАВАЯ ЛІРА (Скрипящее тремоло) ---
+            else if (instrument === 'lira') {
+                // Основной гудящий тон
+                const drone1 = audioCtx.createOscillator();
+                const drone2 = audioCtx.createOscillator();
+                drone1.type = 'sawtooth';
+                drone1.frequency.value = 146.83; // D3
+                drone2.type = 'square';
+                drone2.frequency.value = 293.66; // D4
+
+                const mainGain = audioCtx.createGain();
+                mainGain.gain.value = 0; // Будет модулироваться
+
+                // Эффект вращения колеса (Тремоло)
+                const wheel = audioCtx.createOscillator();
+                const wheelGain = audioCtx.createGain();
+                wheel.type = 'sawtooth';
+                wheel.frequency.value = 14; // Скорость "трения" колеса
+                wheelGain.gain.value = 0.8;
+
+                wheel.connect(wheelGain.gain);
+                wheel.start();
+
+                drone1.connect(mainGain);
+                drone2.connect(mainGain);
+
+                // Подключаем тремоло к громкости основного звука
+                wheelGain.connect(mainGain.gain);
+                mainGain.connect(audioCtx.destination);
+
+                drone1.start();
+                drone2.start();
+
+                activeNodes.push(drone1, drone2, wheel);
+            }
+
+            // --- 4. ЖАЛЕЙКА (Мягкий воздушный звук) ---
+            else if (instrument === 'zhaleika') {
+                // Основной тон (флейтовый)
+                const osc = audioCtx.createOscillator();
+                const oscGain = audioCtx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.value = 659.25; // E5
+                oscGain.gain.value = 0.4;
+
+                // Генератор белого шума для имитации воздуха
+                const bufferSize = audioCtx.sampleRate * 2;
+                const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                const output = noiseBuffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    output[i] = Math.random() * 2 - 1;
+                }
+
+                const noise = audioCtx.createBufferSource();
+                noise.buffer = noiseBuffer;
+                noise.loop = true;
+
+                // Фильтруем шум, чтобы он звучал как дыхание в трубку
+                const bandpass = audioCtx.createBiquadFilter();
+                bandpass.type = 'bandpass';
+                bandpass.frequency.value = 1000;
+
+                const noiseGain = audioCtx.createGain();
+                noiseGain.gain.value = 0.08;
+
+                noise.connect(bandpass);
+                bandpass.connect(noiseGain);
+                noiseGain.connect(audioCtx.destination);
+                noise.start();
+
+                osc.connect(oscGain);
+                oscGain.connect(audioCtx.destination);
+                osc.start();
+
+                activeNodes.push(osc, noise);
+            }
+        }
     </script>
 </body>
 
